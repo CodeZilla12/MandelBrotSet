@@ -72,10 +72,12 @@ void computeRow(std::vector<complex>::iterator start, std::vector<complex>::iter
 int main()
 {
 
-    int n = 5000, m = 5000; //Size of array. Increase to improve resolution
+    float aspect = 9.0/16.0; //aspect ratio of 16:9
 
-    double rmin = -2, rmax = -1;
+    double rmin = -2, rmax = 1;
     double imin = -1, imax = 1;
+
+    int n = 5000, m = n*aspect; //Size of array. Increase to improve resolution
 
     double rstep = (rmax - rmin) / n, istep = (imax - imin) / m;
 
@@ -122,7 +124,7 @@ int main()
 
     std::ofstream outdata;
     std::string end;
-    outdata.open("mbdata.txt");
+    outdata.open("C:\\Users\\samgl\\source\\repos\\CodeZilla12\\MandelBrotSet\\mbdata.txt");
 
     outdata << rmin << "," << rmax << "," << imin << "," << imax << "," << MAX_ITR << "\n";
 
@@ -138,5 +140,5 @@ int main()
 
     std::cout << "...Finished!\n";
 
-    std::system("python plot_data.py");
+    std::system("python C:\\Users\\samgl\\source\\repos\\CodeZilla12\\MandelBrotSet\\plot_data.py");
 }
